@@ -130,6 +130,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         disposable.clear()
+        homeViewModel.closeDb()
         super.onDestroy()
     }
 

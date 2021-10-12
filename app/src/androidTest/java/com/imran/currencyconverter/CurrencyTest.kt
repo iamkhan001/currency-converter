@@ -38,7 +38,7 @@ class CurrencyTest {
 
         // test to convert INR into YEN
         val currencyFrom = dbHelper.getCurrencyRate("INR")
-        val currencyTo = dbHelper.getCurrencyRate("YEN")
+        val currencyTo = dbHelper.getCurrencyRate("AED")
 
         if (currencyFrom == null || currencyTo == null) {
             assert(false) { "Currency not found" }
@@ -47,10 +47,10 @@ class CurrencyTest {
 
         val valueINR = 100
         val rateUSD = valueINR / currencyFrom.rate
-        val rateYED = rateUSD / currencyTo.rate
+        val rateAED = rateUSD / currencyTo.rate
 
         //assert conversion rate
-        assert(true) { "$valueINR INR is $rateUSD USD and $rateYED YEN" }
+        assert(true) { "$valueINR INR is $rateUSD USD and $rateAED AED" }
 
     }
 

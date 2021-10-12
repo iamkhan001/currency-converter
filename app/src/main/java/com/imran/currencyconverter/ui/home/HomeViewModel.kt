@@ -25,7 +25,7 @@ class HomeViewModel(context: Context): ViewModel() {
 
     init {
         apiRepository = ApiRepository.getInstance(dbHelper, appDataProvider)
-        selectedCurrency.postValue(Currency(1, "USD", 1.0))
+        selectedCurrency.postValue(dbHelper.getCurrencyRate("USD"))
     }
 
     fun loadCurrencyData() {
@@ -60,6 +60,10 @@ class HomeViewModel(context: Context): ViewModel() {
            }
        }
 
+    }
+
+    fun closeDb() {
+        dbHelper.closeDb()
     }
 
     companion object {
